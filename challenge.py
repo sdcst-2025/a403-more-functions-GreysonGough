@@ -15,12 +15,21 @@ determine how many years in the future they will have the same population or
 if they are diverging and will never have the same population
 """
 
-def population():
-    return
+def population(p, r, n):
+    return p * (1 + r) ** n
 
 def equal(p1,r1,p2,r2):
-    return
-
+    if r1 == r2:
+        return None
+    if (p1 > p2 and r1 >= r2) or (p2 > p1 and r2 >= r1):
+            return None
+    try:
+         n = (p1/p2) / ((1+r2)/(1+r1))
+         if n < 0:
+              return None
+         return n
+    except:
+         return None
 def tests():
     assert round(population(1000,.05, 5)) == 1276
     assert round(population(1000,.02, 20)) == 1486

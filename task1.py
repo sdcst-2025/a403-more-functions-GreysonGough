@@ -14,16 +14,16 @@ assert btcTocad(1) == 45000
 (2 points) 
 """
 
-def btcTocad():
-    pass
+def btcTocad(amount):
+    currbtc = 45000
+    if isinstance(amount, (int, float)):
+        return float(amount * currbtc)
+    else:
+        return 'error'
 
 
-"""
-This checks to see if you are running the program as the main script or
-if it is imported by another program.
-If this py file is imported by another program, then the commands below
-are not executed.
-"""
+
+
 if __name__ == "__main__":
     assert btcTocad(1) == 45000
     assert btcTocad(2.5) == 112500
